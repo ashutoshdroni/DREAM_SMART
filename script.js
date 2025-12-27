@@ -457,7 +457,438 @@ document.addEventListener('keydown', (e) => {
         if (teamModal?.style.display === 'flex') closeTeamProfile();
     }
 });
+// ==================== LOGIN & SIGNUP VALIDATION ====================
 
+// Real-time validation for signup form
+document.addEventListener('DOMContentLoaded', function() {
+    // Login Form Validation
+    const loginForm = document.getElementById('loginForm');
+    if (loginForm) {
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (validateLoginForm()) {
+                const email = document.getElementById('loginEmail').value;
+                alert(`✅ Welcome back! Login successful for ${email}`);
+                closeLoginModal();
+                loginForm.reset();
+            }
+        });
+        
+        // Real-time email validation for login
+        const loginEmail = document.getElementById('loginEmail');
+        if (loginEmail) {
+            loginEmail.addEventListener('blur', function() {
+                validateEmail(this, 'loginEmail');
+            });
+        }
+    }
+    
+    // Signup Form Validation
+    const signupForm = document.getElementById('signupForm');
+    if (signupForm) {
+        signupForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (validateSignupForm()) {
+                const firstName = document.getElementById('firstName').value;
+                alert(`✅ Account created successfully! Welcome ${firstName}!`);
+                closeSignupModal();
+                signupForm.reset();
+            }
+        });
+        
+        // Real-time validation for signup fields
+        const firstName = document.getElementById('firstName');
+        const lastName = document.getElementById('lastName');
+        const signupEmail = document.getElementById('signupEmail');
+        const phone = document.getElementById('phone');
+        const signupPassword = document.getElementById('signupPassword');
+        const confirmPassword = document.getElementById('confirmPassword');
+        
+        // Name validation (only letters and spaces, 2-30 characters)
+        if (firstName) {
+            firstName.addEventListener('input', function() {
+                this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+                if (this.value.length > 30) {
+                    this.value = this.value.slice(0, 30);
+                }
+            });
+            
+            firstName.addEventListener('blur', function() {
+                validateName(this, 'First Name');
+            });
+        }
+        
+        if (lastName) {
+            lastName.addEventListener('input', function() {
+                this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+                if (this.value.length > 30) {
+                    this.value = this.value.slice(0, 30);
+                }
+            });
+            
+            lastName.addEventListener('blur', function() {
+                validateName(this, 'Last Name');
+            });
+        }
+        
+        // Email validation
+        if (signupEmail) {
+            signupEmail.addEventListener('blur', function() {
+                validateEmail(this, 'signupEmail');
+            });
+        }
+        
+        // Phone validation (only digits, exactly 10)
+        if (phone) {
+            phone.addEventListener('input', function() {
+                this.value = this.value.replace(/[^0-9]/g, '');
+                if (this.value.length > 10) {
+                    this.value = this.value.slice(0, 10);
+                }
+            });
+            
+            phone.addEventListener('blur', function() {
+                validatePhone(this);
+            });
+        }
+        
+        // Password validation
+        if (signupPassword) {
+            signupPassword.addEventListener('blur', function() {
+                validatePassword(this);
+            });
+        }
+        
+        // Confirm password validation
+        if (confirmPassword) {
+            confirmPassword.addEventListener('blur', function() {
+                validateConfirmPassword();
+            });
+        }
+    }
+});
+
+// ===== VALIDATION FUNCTIONS =====
+
+function validateLoginForm() {
+    const email = document.getElementById('loginEmail').value.trim();
+    const password = document.getElementById('loginPassword').value;
+    
+    // Email validation
+    if (!validateEmail(document.getElementById('loginEmail'), 'loginEmail')) {
+        return false;
+    }
+    
+    // Password validation (must not be empty)
+    if (password.length === 0) {
+        showError(document.getElementById('loginPassword'), 'Password is required');
+        return false;
+    }
+    
+    clearError(document.getElementById('loginPassword'));
+    return true;
+}
+
+function validateSignupForm() {
+    const firstName = document.getElementById('firstName').value.trim();
+    const lastName = document.getElementById('lastName').value.trim();
+    const email = document.getElementById('signupEmail').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const password = document.getElementById('signupPassword').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
+    const userType = document.getElementById('userType').value;
+    
+    // Validate first name
+    if (!validateName(document.getElementById('firstName'), 'First Name')) {
+        document.getElementById('firstName').focus();
+        return false;
+    }
+    
+    // Validate last name
+    if (!validateName(document.getElementById('lastName'), 'Last Name')) {
+        document.getElementById('lastName').focus();
+        return false;
+    }
+    
+    // Validate email
+    if (!validateEmail(document.getElementById('signupEmail'), 'signupEmail')) {
+        document.getElementById('signupEmail').focus();
+        return false;
+    }
+    
+    // Validate phone
+    if (!validatePhone(document.getElementById('phone'))) {
+        document.getElementById('phone').focus();
+        return false;
+    }
+    
+    // Validate password
+    if (!validatePassword(document.getElementById('signupPassword'))) {
+        document.getElementById('signupPassword').focus();
+        return false;
+    }
+    
+    // Validate confirm password
+    if (!validateConfirmPassword()) {
+        document.getElementById('confirmPassword').focus();
+        return false;
+    }
+    
+    // Validate user type
+    if (userType === '') {
+        alert('❌ Please select your user type.');
+        document.getElementById('userType').focus();
+        return false;
+    }
+    
+    return true;
+}
+
+function validateName(input, fieldName) {
+    const value = input.value.trim();
+    const namePattern = /^[a-zA-Z\s]{2,30}$/;
+    
+    if (value.length === 0) {
+        showError(input, `${fieldName} is required`);
+        return false;
+    }
+    
+    if (!namePattern.test(value)) {
+        if (value.length < 2) {
+            showError(input, `${fieldName} must be at least 2 characters`);
+        } else if (value.length > 30) {
+            showError(input, `${fieldName} must not exceed 30 characters`);
+        } else {
+            showError(input, `${fieldName} can only contain letters and spaces`);
+        }
+        return false;
+    }
+    
+    clearError(input);
+    input.classList.add('success');
+    setTimeout(() => input.classList.remove('success'), 2000);
+    return true;
+}
+
+function validateEmail(input, fieldId) {
+    const value = input.value.trim();
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+    if (value.length === 0) {
+        showError(input, 'Email is required');
+        return false;
+    }
+    
+    if (!emailPattern.test(value)) {
+        showError(input, 'Please enter a valid email address (e.g., example@email.com)');
+        return false;
+    }
+    
+    clearError(input);
+    input.classList.add('success');
+    setTimeout(() => input.classList.remove('success'), 2000);
+    return true;
+}
+
+function validatePhone(input) {
+    const value = input.value.trim();
+    const phonePattern = /^[0-9]{10}$/;
+    
+    if (value.length === 0) {
+        showError(input, 'Mobile number is required');
+        return false;
+    }
+    
+    if (!phonePattern.test(value)) {
+        if (value.length < 10) {
+            showError(input, `Mobile number must be exactly 10 digits (${10 - value.length} more needed)`);
+        } else {
+            showError(input, 'Mobile number must be exactly 10 digits');
+        }
+        return false;
+    }
+    
+    clearError(input);
+    input.classList.add('success');
+    setTimeout(() => input.classList.remove('success'), 2000);
+    return true;
+}
+
+function validatePassword(input) {
+    const value = input.value;
+    
+    if (value.length === 0) {
+        showError(input, 'Password is required');
+        return false;
+    }
+    
+    if (value.length < 8) {
+        showError(input, `Password must be at least 8 characters (${8 - value.length} more needed)`);
+        return false;
+    }
+    
+    // Check for password strength
+    const hasUpperCase = /[A-Z]/.test(value);
+    const hasLowerCase = /[a-z]/.test(value);
+    const hasNumber = /[0-9]/.test(value);
+    const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(value);
+    
+    if (!hasUpperCase || !hasLowerCase || !hasNumber) {
+        showError(input, 'Password should contain uppercase, lowercase, and numbers');
+        return false;
+    }
+    
+    clearError(input);
+    input.classList.add('success');
+    setTimeout(() => input.classList.remove('success'), 2000);
+    return true;
+}
+
+function validateConfirmPassword() {
+    const password = document.getElementById('signupPassword').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
+    const input = document.getElementById('confirmPassword');
+    
+    if (confirmPassword.length === 0) {
+        showError(input, 'Please confirm your password');
+        return false;
+    }
+    
+    if (password !== confirmPassword) {
+        showError(input, 'Passwords do not match');
+        return false;
+    }
+    
+    clearError(input);
+    input.classList.add('success');
+    setTimeout(() => input.classList.remove('success'), 2000);
+    return true;
+}
+
+function showError(input, message) {
+    input.classList.remove('success');
+    input.classList.add('error');
+    
+    // Remove existing error message if any
+    const existingError = input.parentElement.querySelector('.error-message');
+    if (existingError) {
+        existingError.remove();
+    }
+    
+    // Add new error message
+    const errorDiv = document.createElement('span');
+    errorDiv.className = 'error-message';
+    errorDiv.textContent = '⚠️ ' + message;
+    input.parentElement.appendChild(errorDiv);
+}
+
+function clearError(input) {
+    input.classList.remove('error');
+    const errorMessage = input.parentElement.querySelector('.error-message');
+    if (errorMessage) {
+        errorMessage.remove();
+    }
+}
+
+// ===== HELPER FUNCTIONS =====
+
+// Show password toggle (optional enhancement)
+function togglePasswordVisibility(inputId, buttonId) {
+    const input = document.getElementById(inputId);
+    const button = document.getElementById(buttonId);
+    
+    if (input && button) {
+        button.addEventListener('click', function() {
+            if (input.type === 'password') {
+                input.type = 'text';
+                button.textContent = '👁️';
+            } else {
+                input.type = 'password';
+                button.textContent = '👁️‍🗨️';
+            }
+        });
+    }
+}
+
+// Form reset on modal close
+function closeLoginModal() {
+    const modal = document.getElementById('loginModal');
+    const form = document.getElementById('loginForm');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+    if (form) {
+        form.reset();
+        // Clear all errors
+        form.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
+        form.querySelectorAll('.error-message').forEach(el => el.remove());
+    }
+}
+
+function closeSignupModal() {
+    const modal = document.getElementById('signupModal');
+    const form = document.getElementById('signupForm');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+    if (form) {
+        form.reset();
+        // Clear all errors
+        form.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
+        form.querySelectorAll('.error-message').forEach(el => el.remove());
+    }
+}
+
+function openLoginModal() {
+    const modal = document.getElementById('loginModal');
+    if (modal) {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function openSignupModal() {
+    const modal = document.getElementById('signupModal');
+    if (modal) {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function switchToSignup() {
+    closeLoginModal();
+    openSignupModal();
+}
+
+function switchToLogin() {
+    closeSignupModal();
+    openLoginModal();
+}
+
+// Close modal when clicking outside
+window.addEventListener('click', function(event) {
+    const loginModal = document.getElementById('loginModal');
+    const signupModal = document.getElementById('signupModal');
+    
+    if (event.target === loginModal) {
+        closeLoginModal();
+    }
+    if (event.target === signupModal) {
+        closeSignupModal();
+    }
+});
+
+// Close modal on Escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeLoginModal();
+        closeSignupModal();
+    }
+});
 
 
 

@@ -48,7 +48,7 @@
     <!-- Header -->
     <header>
         <nav class="navbar" aria-label="Main navigation">
-            <a href="index.html" class="logo">
+            <a href="/home" class="logo">
                 <img src="images/logo.png" alt="Dream Smart Logo" width="50" height="50">
                 <div>
                     <h1>DREAM SMART</h1>
@@ -56,7 +56,7 @@
                 </div>
             </a>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html" aria-current="page">Home</a></li>
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="training.html">Training</a></li>
                 <li><a href="about.html">About Us</a></li>
@@ -126,27 +126,69 @@
         </div>
     </section>
 
-    <!-- Customer Testimonials -->
+    <!-- Customer Testimonials Section -->
     <section class="testimonials">
         <h2 class="section-title">What Our Customers Say About Us</h2>
+        
         <div class="testimonial-grid">
+            <!-- Testimonial 1 - YouTube Video -->
             <div class="testimonial-card">
-                <video width="100%" controls preload="metadata">
-                    <source src="customer1.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+                <iframe 
+                    src="https://www.youtube.com/embed/YOUR_VIDEO_ID_1" 
+                    title="Customer Testimonial 1"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
             </div>
-            <div class="testimonial-card video-card">
-                <video width="100%" controls preload="metadata">
-                    <source src="customer2.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
+
+            <!-- Testimonial 2 - YouTube Video -->
             <div class="testimonial-card">
-                <video width="100%" controls preload="metadata">
-                    <source src="customer3.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+                <iframe 
+                    src="https://www.youtube.com/embed/YOUR_VIDEO_ID_2" 
+                    title="Customer Testimonial 2"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <!-- Testimonial 3 - YouTube Video -->
+            <div class="testimonial-card">
+                <iframe 
+                    src="https://www.youtube.com/embed/YOUR_VIDEO_ID_3" 
+                    title="Customer Testimonial 3"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <!-- Testimonial 4 (Optional) - YouTube Video -->
+            <div class="testimonial-card">
+                <iframe 
+                    src="https://www.youtube.com/embed/YOUR_VIDEO_ID_4" 
+                    title="Customer Testimonial 4"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <!-- Testimonial 5 (Optional) - YouTube Video -->
+            <div class="testimonial-card">
+                <iframe 
+                    src="https://www.youtube.com/embed/YOUR_VIDEO_ID_5" 
+                    title="Customer Testimonial 5"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <!-- Testimonial 6 (Optional) - YouTube Video -->
+            <div class="testimonial-card">
+                <iframe 
+                    src="https://www.youtube.com/embed/YOUR_VIDEO_ID_6" 
+                    title="Customer Testimonial 6"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
             </div>
         </div>
     </section>
@@ -296,7 +338,6 @@
         <div class="modal-content">
             <span class="close" onclick="closeLoginModal()">&times;</span>
             
-            <!-- Logo Section -->
             <div class="modal-logo">
                 <img src="images/logo.png" alt="Dream Smart Logo" width="60" height="60">
                 <h1>DREAM SMART</h1>
@@ -306,11 +347,11 @@
             <h2>Login</h2>
             <form id="loginForm">
                 <div class="form-group">
-                    <label for="loginEmail">Email:<span class="required">*</label>
+                    <label for="loginEmail">Email:<span class="required">*</span></label>
                     <input type="email" id="loginEmail" name="email" required>
                 </div>
                 <div class="form-group">
-                    <label for="loginPassword">Password:<span class="required">*</label>
+                    <label for="loginPassword">Password:<span class="required">*</span></label>
                     <input type="password" id="loginPassword" name="password" required>
                 </div>
                 <div class="form-options">
@@ -329,7 +370,6 @@
         <div class="modal-content">
             <span class="close" onclick="closeSignupModal()">&times;</span>
             
-            <!-- Logo Section -->
             <div class="modal-logo">
                 <img src="images/logo.png" alt="Dream Smart Logo" width="60" height="60">
                 <h1>DREAM SMART</h1>
@@ -340,20 +380,20 @@
             <form id="signupForm">
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="firstName">First Name:<span class="required">*</label>
+                        <label for="firstName">First Name:<span class="required">*</span></label>
                         <input type="text" id="firstName" name="firstName" required>
                     </div>
                     <div class="form-group">
-                        <label for="lastName">Last Name:<span class="required">*</label>
+                        <label for="lastName">Last Name:<span class="required">*</span></label>
                         <input type="text" id="lastName" name="lastName" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="signupEmail">Email:<span class="required">*</label>
+                    <label for="signupEmail">Email:<span class="required">*</span></label>
                     <input type="email" id="signupEmail" name="email" required>
                 </div>
                 <div class="form-group">
-                    <label for="phone">Phone Number:<span class="required">*</label>
+                    <label for="phone">Phone Number:<span class="required">*</span></label>
                     <div class="phone-input">
                         <select id="countryCode" name="countryCode" required>
                             <option value="+91" selected>+91 India</option>
@@ -389,16 +429,16 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="signupPassword">Password:<span class="required">*</label>
+                        <label for="signupPassword">Password:<span class="required">*</span></label>
                         <input type="password" id="signupPassword" name="password" minlength="8" required>
                     </div>
                     <div class="form-group">
-                        <label for="confirmPassword">Confirm Password:<span class="required">*</label>
+                        <label for="confirmPassword">Confirm Password:<span class="required">*</span></label>
                         <input type="password" id="confirmPassword" name="confirmPassword" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="userType">I am a:<span class="required">*</label>
+                    <label for="userType">I am a:<span class="required">*</span></label>
                     <select id="userType" name="userType" required>
                         <option value="">Select...</option>
                         <option value="client">Client</option>
