@@ -95,88 +95,115 @@
             </p>
 
             <h3>📋 Job Application Form</h3>
-            <form class="career-form" id="careerForm" novalidate>
-                <label for="fullName">Full Name <span style="color: red;">*</span></label>
-                <input 
-                    type="text" 
-                    id="fullName" 
-                    name="fullName" 
-                    pattern="^[a-zA-Z\s]{2,30}$" 
-                    minlength="2" 
-                    maxlength="30" 
-                    placeholder="Enter your full name (2-30 characters)" 
-                    autocomplete="name"
-                    required
-                    aria-required="true">
-                
+<!-- Replace the career form section in career.html (starting from line 89) with this updated version -->
 
-                <label for="email">Email Address <span style="color: red;">*</span></label>
-                <input 
-                    type="email" 
-                    id="email" 
-                    name="email" 
-                    placeholder="Enter your email address" 
-                    autocomplete="email"
-                    required
-                    aria-required="true">
-                <small style="color: #666; font-size: 0.85rem; margin-top: -0.8rem; display: block; padding-left: 1rem;">Enter a valid email address</small>
+<form class="career-form" id="careerForm" novalidate>
+    <label for="fullName">Full Name <span style="color: red;">*</span></label>
+    <input 
+        type="text" 
+        id="fullName" 
+        name="fullName" 
+        pattern="^[a-zA-Z\s]{2,30}$" 
+        minlength="2" 
+        maxlength="30" 
+        placeholder="Enter your full name (2-30 characters)" 
+        autocomplete="name"
+        required
+        aria-required="true">
+    
 
-                <label for="mobile">Mobile Number <span style="color: red;">*</span></label>
-                <div class="phone-input">
-                    <select id="country-code" name="country-code" required aria-required="true">
-                        <option value="+91">+91 (India)</option>
-                        <option value="+1">+1 (USA/Canada)</option>
-                        <option value="+44">+44 (UK)</option>
-                        <option value="+61">+61 (Australia)</option>
-                        <option value="+971">+971 (UAE)</option>
-                        <option value="+966">+966 (Saudi Arabia)</option>
-                        <option value="+977">+977 (Nepal)</option>
-                        <option value="+94">+94 (Sri Lanka)</option>
-                        <option value="+92">+92 (Pakistan)</option>
-                        <option value="+880">+880 (Bangladesh)</option>
-                        <option value="+60">+60 (Malaysia)</option>
-                        <option value="+65">+65 (Singapore)</option>
-                        <option value="+62">+62 (Indonesia)</option>
-                        <option value="+63">+63 (Philippines)</option>
-                        <option value="+66">+66 (Thailand)</option>
-                        <option value="+84">+84 (Vietnam)</option>
-                        <option value="+81">+81 (Japan)</option>
-                        <option value="+82">+82 (South Korea)</option>
-                        <option value="+86">+86 (China)</option>
-                        <option value="+964">+964 (Iraq)</option>
-                    </select>
-                    <input 
-                        type="tel" 
-                        id="mobile" 
-                        name="mobile" 
-                        pattern="[0-9]{10}" 
-                        placeholder="Enter 10-digit mobile number" 
-                        maxlength="10"
-                        autocomplete="tel"
-                        required
-                        aria-required="true">
-                </div>
-                
-                <label for="position">Position Applied For <span style="color: red;">*</span></label>
-                <select id="position" name="position" required aria-required="true">
-                    <option value="">Select a position</option>
-                    <option value="civil-engineer">Civil Engineer</option>
-                    <option value="site-supervisor">Site Supervisor</option>
-                    <option value="project-manager">Project Manager</option>
-                    <option value="architect">Architect</option>
-                    <option value="construction-worker">Construction Worker</option>
-                    <option value="electrician">Electrician</option>
-                    <option value="plumber">Plumber</option>
-                    <option value="quantity-surveyor">Quantity Surveyor</option>
-                    <option value="safety-officer">Safety Officer</option>
-                    <option value="other">Other</option>
-                </select>
-                <small style="color: #666; font-size: 0.85rem; margin-top: -0.8rem; display: block; padding-left: 1rem;">Select your desired position</small>
+    <label for="email">Email Address <span style="color: red;">*</span></label>
+    <input 
+        type="email" 
+        id="email" 
+        name="email" 
+        placeholder="Enter your email address" 
+        autocomplete="email"
+        required
+        aria-required="true">
+    <small style="color: #666; font-size: 0.85rem; margin-top: -0.8rem; display: block; padding-left: 1rem;">Enter a valid email address</small>
 
-                <button type="button" onclick="sendWhatsAppCareer()">
-                    Submit To WhatsApp
-                </button>
-            </form>
+    <label for="mobile">Mobile Number <span style="color: red;">*</span></label>
+    <div class="phone-input">
+        <select id="country-code" name="country-code" required aria-required="true">
+            <option value="+91">+91 (India)</option>
+            <option value="+1">+1 (USA/Canada)</option>
+            <option value="+44">+44 (UK)</option>
+            <option value="+61">+61 (Australia)</option>
+            <option value="+971">+971 (UAE)</option>
+            <option value="+966">+966 (Saudi Arabia)</option>
+            <option value="+977">+977 (Nepal)</option>
+            <option value="+94">+94 (Sri Lanka)</option>
+            <option value="+92">+92 (Pakistan)</option>
+            <option value="+880">+880 (Bangladesh)</option>
+            <option value="+60">+60 (Malaysia)</option>
+            <option value="+65">+65 (Singapore)</option>
+            <option value="+62">+62 (Indonesia)</option>
+            <option value="+63">+63 (Philippines)</option>
+            <option value="+66">+66 (Thailand)</option>
+            <option value="+84">+84 (Vietnam)</option>
+            <option value="+81">+81 (Japan)</option>
+            <option value="+82">+82 (South Korea)</option>
+            <option value="+86">+86 (China)</option>
+            <option value="+964">+964 (Iraq)</option>
+        </select>
+        <input 
+            type="tel" 
+            id="mobile" 
+            name="mobile" 
+            pattern="[0-9]{10}" 
+            placeholder="Enter 10-digit mobile number" 
+            maxlength="10"
+            autocomplete="tel"
+            required
+            aria-required="true">
+    </div>
+    
+    <label for="position">Position Applied For <span style="color: red;">*</span></label>
+    <select id="position" name="position" required aria-required="true">
+        <option value="">Select a position</option>
+        <option value="civil-engineer">Civil Engineer</option>
+        <option value="site-supervisor">Site Supervisor</option>
+        <option value="project-manager">Project Manager</option>
+        <option value="architect">Architect</option>
+        <option value="construction-worker">Construction Worker</option>
+        <option value="electrician">Electrician</option>
+        <option value="plumber">Plumber</option>
+        <option value="quantity-surveyor">Quantity Surveyor</option>
+        <option value="safety-officer">Safety Officer</option>
+        <option value="other">Other</option>
+    </select>
+    <small style="color: #666; font-size: 0.85rem; margin-top: -0.8rem; display: block; padding-left: 1rem;">Select your desired position</small>
+
+    <label for="resume">Upload Resume <span style="color: red;">*</span></label>
+    <input 
+        type="file" 
+        id="resume" 
+        name="resume" 
+        accept=".pdf,.doc,.docx"
+        required
+        aria-required="true">
+    <small style="color: #666; font-size: 0.85rem; margin-top: -0.8rem; display: block; padding-left: 1rem;">Accepted formats: PDF, DOC, DOCX (Max 5MB)</small>
+    <div id="resumeFileName" style="display: none; margin-top: 0.5rem; padding: 0.5rem 1rem; background: rgba(37, 211, 102, 0.1); border-radius: 8px; color: #128C7E; font-weight: 600; font-size: 0.9rem;">
+        📄 <span id="resumeFileNameText"></span>
+    </div>
+
+    <label for="video">Upload Introduction Video (Optional)</label>
+    <input 
+        type="file" 
+        id="video" 
+        name="video" 
+        accept="video/mp4,video/webm,video/ogg,video/quicktime"
+        aria-required="false">
+    <small style="color: #666; font-size: 0.85rem; margin-top: -0.8rem; display: block; padding-left: 1rem;">Accepted formats: MP4, WebM, OGG, MOV (Max 50MB)</small>
+    <div id="videoFileName" style="display: none; margin-top: 0.5rem; padding: 0.5rem 1rem; background: rgba(37, 211, 102, 0.1); border-radius: 8px; color: #128C7E; font-weight: 600; font-size: 0.9rem;">
+        🎥 <span id="videoFileNameText"></span>
+    </div>
+
+    <button type="button" onclick="sendWhatsAppCareer()">
+        Submit To WhatsApp
+    </button>
+</form>
         </section>
     </main>
 
@@ -343,192 +370,429 @@
     </div>
 
     <script src="script.js"></script>
+<script>
+// ==================== CAREER FORM MODULE WITH CLOUDINARY UPLOAD ====================
+const CareerForm = (function() {
+    'use strict';
     
-    <script>
-        // ==================== CAREER FORM MODULE ====================
-        const CareerForm = (function() {
-            'use strict';
-            
-            // Configuration
-            const CONFIG = {
-                whatsappPhone: "919815969240",
-                formId: "careerForm",
-                fields: {
-                    fullName: "fullName",
-                    email: "email",
-                    mobile: "mobile",
-                    countryCode: "country-code",
-                    position: "position"
-                }
-            };
-
-            // Validation patterns
-            const PATTERNS = {
-                name: /^[a-zA-Z\s]{2,30}$/,
-                email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                mobile: /^[0-9]{10}$/
-            };
-
-            // Error messages
-            const ERRORS = {
-                name: '⚠ Name must be 2-30 characters and contain only letters and spaces.',
-                email: '⚠ Please enter a valid email address (e.g., example@email.com).',
-                mobile: '⚠ Mobile number must be exactly 10 digits (without country code).',
-                position: '⚠ Please select a position you are applying for.'
-            };
-
-            // Cache DOM elements
-            const elements = {};
-
-            // Initialize DOM cache
-            function cacheDOMElements() {
-                elements.form = document.getElementById(CONFIG.formId);
-                elements.fullName = document.getElementById(CONFIG.fields.fullName);
-                elements.email = document.getElementById(CONFIG.fields.email);
-                elements.mobile = document.getElementById(CONFIG.fields.mobile);
-                elements.countryCode = document.getElementById(CONFIG.fields.countryCode);
-                elements.position = document.getElementById(CONFIG.fields.position);
-            }
-
-            // Validation functions
-            function validateField(value, pattern, errorMsg, focusElement) {
-                if (!pattern.test(value.trim())) {
-                    alert(errorMsg);
-                    focusElement?.focus();
-                    return false;
-                }
-                return true;
-            }
-
-            function validateCareerForm() {
-                const name = elements.fullName.value;
-                const email = elements.email.value;
-                const mobile = elements.mobile.value;
-                const position = elements.position.value;
-
-                // Name validation
-                if (!validateField(name, PATTERNS.name, ERRORS.name, elements.fullName)) {
-                    return false;
-                }
-
-                // Email validation
-                if (!validateField(email, PATTERNS.email, ERRORS.email, elements.email)) {
-                    return false;
-                }
-
-                // Mobile validation
-                if (!validateField(mobile, PATTERNS.mobile, ERRORS.mobile, elements.mobile)) {
-                    return false;
-                }
-
-                // Position validation
-                if (!position) {
-                    alert(ERRORS.position);
-                    elements.position.focus();
-                    return false;
-                }
-
-                return true;
-            }
-
-            // Format position text
-            function formatPositionText(position) {
-                return position.split('-')
-                    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-                    .join(' ');
-            }
-
-            // Build WhatsApp message
-            function buildWhatsAppMessage() {
-                const data = {
-                    name: elements.fullName.value.trim(),
-                    email: elements.email.value.trim(),
-                    countryCode: elements.countryCode.value,
-                    mobile: elements.mobile.value.trim(),
-                    position: formatPositionText(elements.position.value)
-                };
-
-                return encodeURIComponent(
-                    `*💼 New Career Application*\n\n` + 
-                    `*Name:* ${data.name}\n` + 
-                    `*Email:* ${data.email}\n` +
-                    `*Mobile:* ${data.countryCode} ${data.mobile}\n` + 
-                    `*Position Applied For:* ${data.position}\n\n` +
-                    `_Submitted via Dream Smart Career Portal_`
-                );
-            }
-
-            // Send to WhatsApp
-            function sendToWhatsApp() {
-                // HTML5 validation
-                if (!elements.form.checkValidity()) {
-                    elements.form.reportValidity();
-                    return;
-                }
-
-                // Custom validation
-                if (!validateCareerForm()) {
-                    return;
-                }
-
-                const message = buildWhatsAppMessage();
-                const url = `https://wa.me/${CONFIG.whatsappPhone}?text=${message}`;
-                
-                // Show success message
-                alert('✅ Your application is being sent to WhatsApp!\n\nYou will be redirected now.');
-                
-                // Redirect to WhatsApp
-                window.location.href = url;
-                
-                // Reset form after delay
-                setTimeout(() => elements.form.reset(), 1000);
-            }
-
-            // Setup real-time input filters
-            function setupInputFilters() {
-                // Mobile number - only digits, max 10
-                if (elements.mobile) {
-                    elements.mobile.addEventListener('input', function() {
-                        this.value = this.value.replace(/[^0-9]/g, '');
-                        if (this.value.length > 10) {
-                            this.value = this.value.slice(0, 10);
-                        }
-                    });
-                }
-
-                // Name - only letters and spaces, max 30
-                if (elements.fullName) {
-                    elements.fullName.addEventListener('input', function() {
-                        this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
-                        if (this.value.length > 30) {
-                            this.value = this.value.slice(0, 30);
-                        }
-                    });
-                }
-            }
-
-            // Initialize module
-            function init() {
-                cacheDOMElements();
-                setupInputFilters();
-            }
-
-            // Public API
-            return {
-                init: init,
-                sendToWhatsApp: sendToWhatsApp
-            };
-        })();
-
-        // Initialize on DOM ready
-        document.addEventListener('DOMContentLoaded', function() {
-            CareerForm.init();
-        });
-
-        // Global function for inline onclick
-        function sendWhatsAppCareer() {
-            CareerForm.sendToWhatsApp();
+    // Configuration
+    const CONFIG = {
+        whatsappPhone: "919815969240",
+        formId: "careerForm",
+        // Cloudinary Configuration
+        cloudinary: {
+            cloudName: "dabfdtke8",
+            uploadPreset: "career_form_preset",
+            uploadUrl: "https://api.cloudinary.com/v1_1/dabfdtke8/auto/upload"
+        },
+        fields: {
+            fullName: "fullName",
+            email: "email",
+            mobile: "mobile",
+            countryCode: "country-code",
+            position: "position",
+            resume: "resume",
+            video: "video"
+        },
+        maxFileSize: {
+            resume: 5 * 1024 * 1024, // 5MB
+            video: 50 * 1024 * 1024  // 50MB
         }
-    </script>
-</body>
-</html>
+    };
+
+    // Validation patterns
+    const PATTERNS = {
+        name: /^[a-zA-Z\s]{2,30}$/,
+        email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+        mobile: /^[0-9]{10}$/
+    };
+
+    // Error messages
+    const ERRORS = {
+        name: '⚠ Name must be 2-30 characters and contain only letters and spaces.',
+        email: '⚠ Please enter a valid email address (e.g., example@email.com).',
+        mobile: '⚠ Mobile number must be exactly 10 digits (without country code).',
+        position: '⚠ Please select a position you are applying for.',
+        resume: '⚠ Please upload your resume.',
+        resumeSize: '⚠ Resume file size must be less than 5MB.',
+        resumeFormat: '⚠ Resume must be in PDF, DOC, or DOCX format.',
+        videoSize: '⚠ Video file size must be less than 50MB.',
+        videoFormat: '⚠ Video must be in MP4, WebM, OGG, or MOV format.',
+        uploadFailed: '❌ File upload failed. Please try again.'
+    };
+
+    // Cache DOM elements
+    const elements = {};
+    
+    // Store uploaded file URLs
+    let uploadedFileUrls = {
+        resume: null,
+        video: null
+    };
+
+    // Initialize DOM cache
+    function cacheDOMElements() {
+        elements.form = document.getElementById(CONFIG.formId);
+        elements.fullName = document.getElementById(CONFIG.fields.fullName);
+        elements.email = document.getElementById(CONFIG.fields.email);
+        elements.mobile = document.getElementById(CONFIG.fields.mobile);
+        elements.countryCode = document.getElementById(CONFIG.fields.countryCode);
+        elements.position = document.getElementById(CONFIG.fields.position);
+        elements.resume = document.getElementById(CONFIG.fields.resume);
+        elements.video = document.getElementById(CONFIG.fields.video);
+        elements.resumeFileName = document.getElementById('resumeFileName');
+        elements.resumeFileNameText = document.getElementById('resumeFileNameText');
+        elements.videoFileName = document.getElementById('videoFileName');
+        elements.videoFileNameText = document.getElementById('videoFileNameText');
+    }
+
+    // Show loading overlay
+    function showLoadingOverlay(message = 'Uploading...') {
+        const overlay = document.createElement('div');
+        overlay.id = 'uploadingOverlay';
+        overlay.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            backdrop-filter: blur(10px);
+        `;
+        
+        overlay.innerHTML = `
+            <div style="
+                background: linear-gradient(135deg, #25D366, #128C7E);
+                padding: 40px;
+                border-radius: 20px;
+                text-align: center;
+                color: white;
+                box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+                max-width: 400px;
+            ">
+                <div style="
+                    width: 60px;
+                    height: 60px;
+                    border: 5px solid rgba(255,255,255,0.3);
+                    border-top-color: white;
+                    border-radius: 50%;
+                    margin: 0 auto 20px;
+                    animation: spin 1s linear infinite;
+                "></div>
+                <h2 style="margin: 0 0 10px 0; font-size: 24px;">${message}</h2>
+                <p id="uploadProgress" style="margin: 10px 0; font-size: 16px; opacity: 0.9;">Please wait...</p>
+            </div>
+            <style>
+                @keyframes spin {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+            </style>
+        `;
+        
+        document.body.appendChild(overlay);
+        return overlay;
+    }
+
+    // Update loading message
+    function updateLoadingMessage(message) {
+        const progressEl = document.getElementById('uploadProgress');
+        if (progressEl) {
+            progressEl.textContent = message;
+        }
+    }
+
+    // Hide loading overlay
+    function hideLoadingOverlay() {
+        const overlay = document.getElementById('uploadingOverlay');
+        if (overlay) {
+            document.body.removeChild(overlay);
+        }
+    }
+
+    // Upload file to Cloudinary
+    async function uploadToCloudinary(file, fileType) {
+        const formData = new FormData();
+        formData.append('file', file);
+        formData.append('upload_preset', CONFIG.cloudinary.uploadPreset);
+        formData.append('folder', 'dream-smart-careers');
+        formData.append('tags', `career,${fileType},${new Date().toISOString().split('T')[0]}`);
+
+        try {
+            const response = await fetch(CONFIG.cloudinary.uploadUrl, {
+                method: 'POST',
+                body: formData
+            });
+
+            if (!response.ok) {
+                throw new Error('Upload failed');
+            }
+
+            const data = await response.json();
+            return {
+                success: true,
+                url: data.secure_url,
+                publicId: data.public_id
+            };
+        } catch (error) {
+            console.error('Cloudinary upload error:', error);
+            return {
+                success: false,
+                error: error.message
+            };
+        }
+    }
+
+    // Validation functions
+    function validateField(value, pattern, errorMsg, focusElement) {
+        if (!pattern.test(value.trim())) {
+            alert(errorMsg);
+            focusElement?.focus();
+            return false;
+        }
+        return true;
+    }
+
+    // File validation
+    function validateFile(file, maxSize, allowedFormats, errorMsgSize, errorMsgFormat) {
+        if (file.size > maxSize) {
+            alert(errorMsgSize);
+            return false;
+        }
+        
+        const fileExtension = file.name.split('.').pop().toLowerCase();
+        if (!allowedFormats.includes(fileExtension)) {
+            alert(errorMsgFormat);
+            return false;
+        }
+        
+        return true;
+    }
+
+    function validateCareerForm() {
+        const name = elements.fullName.value;
+        const email = elements.email.value;
+        const mobile = elements.mobile.value;
+        const position = elements.position.value;
+        const resumeFile = elements.resume.files[0];
+
+        if (!validateField(name, PATTERNS.name, ERRORS.name, elements.fullName)) {
+            return false;
+        }
+
+        if (!validateField(email, PATTERNS.email, ERRORS.email, elements.email)) {
+            return false;
+        }
+
+        if (!validateField(mobile, PATTERNS.mobile, ERRORS.mobile, elements.mobile)) {
+            return false;
+        }
+
+        if (!position) {
+            alert(ERRORS.position);
+            elements.position.focus();
+            return false;
+        }
+
+        if (!resumeFile) {
+            alert(ERRORS.resume);
+            elements.resume.focus();
+            return false;
+        }
+
+        if (!validateFile(
+            resumeFile, 
+            CONFIG.maxFileSize.resume, 
+            ['pdf', 'doc', 'docx'],
+            ERRORS.resumeSize,
+            ERRORS.resumeFormat
+        )) {
+            elements.resume.value = '';
+            elements.resumeFileName.style.display = 'none';
+            return false;
+        }
+
+        const videoFile = elements.video.files[0];
+        if (videoFile) {
+            if (!validateFile(
+                videoFile, 
+                CONFIG.maxFileSize.video, 
+                ['mp4', 'webm', 'ogg', 'mov'],
+                ERRORS.videoSize,
+                ERRORS.videoFormat
+            )) {
+                elements.video.value = '';
+                elements.videoFileName.style.display = 'none';
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    function formatPositionText(position) {
+        return position.split('-')
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(' ');
+    }
+
+    function formatFileSize(bytes) {
+        if (bytes < 1024) return bytes + ' B';
+        if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(2) + ' KB';
+        return (bytes / (1024 * 1024)).toFixed(2) + ' MB';
+    }
+
+    function buildWhatsAppMessage() {
+        const data = {
+            name: elements.fullName.value.trim(),
+            email: elements.email.value.trim(),
+            countryCode: elements.countryCode.value,
+            mobile: elements.mobile.value.trim(),
+            position: formatPositionText(elements.position.value)
+        };
+
+        let message = `*💼 New Career Application*\n\n` + 
+            `*Name:* ${data.name}\n` + 
+            `*Email:* ${data.email}\n` +
+            `*Mobile:* ${data.countryCode} ${data.mobile}\n` + 
+            `*Position Applied For:* ${data.position}\n\n`;
+        
+        if (uploadedFileUrls.resume) {
+            message += `*📄 Resume:*\n${uploadedFileUrls.resume}\n\n`;
+        }
+        
+        if (uploadedFileUrls.video) {
+            message += `*🎥 Introduction Video:*\n${uploadedFileUrls.video}\n\n`;
+        }
+        
+        message += `_Submitted via Dream Smart Career Portal_`;
+
+        return encodeURIComponent(message);
+    }
+
+    async function sendToWhatsApp() {
+        if (!elements.form.checkValidity()) {
+            elements.form.reportValidity();
+            return;
+        }
+
+        if (!validateCareerForm()) {
+            return;
+        }
+
+        const overlay = showLoadingOverlay('📤 Uploading Files...');
+
+        try {
+            updateLoadingMessage('Uploading resume...');
+            const resumeFile = elements.resume.files[0];
+            const resumeUpload = await uploadToCloudinary(resumeFile, 'resume');
+            
+            if (!resumeUpload.success) {
+                throw new Error('Resume upload failed');
+            }
+            
+            uploadedFileUrls.resume = resumeUpload.url;
+
+            const videoFile = elements.video.files[0];
+            if (videoFile) {
+                updateLoadingMessage('Uploading video...');
+                const videoUpload = await uploadToCloudinary(videoFile, 'video');
+                
+                if (!videoUpload.success) {
+                    throw new Error('Video upload failed');
+                }
+                
+                uploadedFileUrls.video = videoUpload.url;
+            }
+
+            hideLoadingOverlay();
+
+            const message = buildWhatsAppMessage();
+            const url = `https://wa.me/${CONFIG.whatsappPhone}?text=${message}`;
+            
+            alert('✅ Files uploaded successfully!\n\n📱 Redirecting to WhatsApp...');
+            
+            window.location.href = url;
+            
+            setTimeout(() => {
+                elements.form.reset();
+                elements.resumeFileName.style.display = 'none';
+                elements.videoFileName.style.display = 'none';
+                uploadedFileUrls = { resume: null, video: null };
+            }, 1000);
+
+        } catch (error) {
+            hideLoadingOverlay();
+            alert(ERRORS.uploadFailed + '\n\nError: ' + error.message);
+            console.error('Upload error:', error);
+        }
+    }
+
+    function setupInputFilters() {
+        if (elements.mobile) {
+            elements.mobile.addEventListener('input', function() {
+                this.value = this.value.replace(/[^0-9]/g, '');
+                if (this.value.length > 10) {
+                    this.value = this.value.slice(0, 10);
+                }
+            });
+        }
+
+        if (elements.fullName) {
+            elements.fullName.addEventListener('input', function() {
+                this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+                if (this.value.length > 30) {
+                    this.value = this.value.slice(0, 30);
+                }
+            });
+        }
+
+        if (elements.resume) {
+            elements.resume.addEventListener('change', function() {
+                if (this.files && this.files[0]) {
+                    const file = this.files[0];
+                    elements.resumeFileNameText.textContent = `${file.name} (${formatFileSize(file.size)})`;
+                    elements.resumeFileName.style.display = 'block';
+                } else {
+                    elements.resumeFileName.style.display = 'none';
+                }
+            });
+        }
+
+        if (elements.video) {
+            elements.video.addEventListener('change', function() {
+                if (this.files && this.files[0]) {
+                    const file = this.files[0];
+                    elements.videoFileNameText.textContent = `${file.name} (${formatFileSize(file.size)})`;
+                    elements.videoFileName.style.display = 'block';
+                } else {
+                    elements.videoFileName.style.display = 'none';
+                }
+            });
+        }
+    }
+
+    function init() {
+        cacheDOMElements();
+        setupInputFilters();
+    }
+
+    return {
+        init: init,
+        sendToWhatsApp: sendToWhatsApp
+    };
+})();
+
+document.addEventListener('DOMContentLoaded', function() {
+    CareerForm.init();
+});
+
+function sendWhatsAppCareer() {
+    CareerForm.sendToWhatsApp();
+}
+</script>
+   
