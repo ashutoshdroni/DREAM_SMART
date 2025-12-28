@@ -712,8 +712,8 @@ header::after {
 
 .project-card img {
     width: 100%;
-    max-width: 280px;
-    height: clamp(160px, 25vw, 200px);
+    max-width: 50%;
+    height: clamp(220px, 35vw, 28s0px);
     object-fit: cover;
     border-radius: 16px;
     margin-bottom: 1.5rem;
